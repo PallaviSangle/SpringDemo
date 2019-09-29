@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+   <context:annotation-config/>
+
+ <!-- 	<bean id="employee" class="com.bv.model.Employee" autowire="byType">
+		<property name="id" value="101" />
+		<property name="name" value="Jaya"></property>
+		<property name="dd" ref="dateBean"></property>
+		<property name="mm" ref="dateBean"></property>
+		<property name="yy" ref="dateBean"></property>
+		<property name="address" ref="addressBean"></property>
+	</bean>
+		
+	
+	
+	<bean id="dateBean" class="com.bv.model.Mydate">
+	<property name="dd" value="11"/>
+	<property name="mm" value="01"/>
+	<property name="yy" value="99"/>
+	</bean> -->
+	
+	<bean id="address" class="com.bv.model.Address">
+	 <property name="address" value="Mumbai" />
+	 </bean>
+	 
+	 <bean id="address1" class="com.bv.model.Address">
+	 <property name="address" value="Pune" />
+	 </bean>
+	 
+	 
+	<bean id="employee" class="com.bv.model.Employee" autowire="constructor">
+	<constructor-arg index="0" value="101"/>
+	<constructor-arg index="1" value="Jaya"/>
+	<property name="dd" ref="dateBean"/>
+	<property name="mm" ref="dateBean"/>
+	<property name="yy" ref="dateBean"/>
+	</bean>
+	
+	<bean class="com.bv.model.Address">
+	<property name="address" value="Mumbai"/>
+	</bean>
+	
+	<bean id="dateBean" class="com.bv.model.Mydate">
+	<property name="dd" value="11"/>
+	<property name="mm" value="01"/>
+	<property name="yy" value="99"/>
+	</bean>
+	
+	<bean id="traingle" class="com.bv.model.Triangle">
+	
+	<!-- <property name="A" ref="pointBean1"></property>
+	<property name="B" ref="pointBean2"></property>
+	<property name="C" ref="pointBean3"></property> -->
+	
+ <property name="points">
+	<list>
+	<ref bean="pointBean1"/>
+	<ref bean="pointBean2"/>
+	<ref bean="pointBean3"/>
+	</list>
+	</property>
+	</bean> 
+	
+	<bean id="pointBean1" class="com.bv.model.Point">
+	<property name="X" value="2"/>
+	<property name="Y" value="3"/>
+	</bean>
+	
+	<bean id="pointBean2" class="com.bv.model.Point">
+	<property name="X" value="1"/>
+	<property name="Y" value="3"/>
+	</bean>
+	
+	<bean id="pointBean3" class="com.bv.model.Point">
+	<property name="X" value="3"/>
+	<property name="Y" value="3"/>
+	</bean> 
+	
+	<bean id="student" class="com.bv.model.Student">
+
+ <!-- <constructor-arg index="0" value="102"/>
+	   <constructor-arg index="1" value="Anuja"/>  -->
+	    <!-- type1 -->
+ <constructor-arg type="int" value="103"/>
+	<constructor-arg type="java.lang.String" value="Anuja"/>
+		<!-- type1 -->
+	<constructor-arg index="2" >
+	<list>
+	<value>Thane</value>
+	<value>Maharashtra</value>
+	<value>400007</value>
+	</list> 
+	</constructor-arg>
+	
+	</bean>
+	
+	<bean id="studentBean" class="com.bv.model.Address1">
+	<constructor-arg type="java.lang.String" value="Mumbai"/>
+	<constructor-arg type="java.lang.String" value="Maharashtra"/>
+	<constructor-arg type="int" value="400007"/>
+	</bean>
+	 
+	
+	<bean id="traingle1" class="com.bv.model.Triangle1" autowire="byName">
+	</bean>
+	
+	 <bean id="A" class="com.bv.model.Point">
+	<property name="x" value="2"/>
+	<property name="y" value="3"/>
+	
+<!-- 	<constructor-arg index="0" value="2"/>
+	<constructor-arg index="1" value="3"/> -->
+	</bean> 
+	
+
+	<bean id="B" class="com.bv.model.Point">
+	<property name="x" value="1"/>
+	<property name="y" value="3"/>
+	
+<!-- 	<constructor-arg index="0" value="1"/>
+	<constructor-arg index="1" value="3"/> -->
+	</bean>
+	
+	<bean id="C" class="com.bv.model.Point">
+	<property name="x" value="3"/>
+	<property name="y" value="3"/>
+	
+<!-- 	<constructor-arg index="0" value="3"/>
+	<constructor-arg index="1" value="3"/> -->
+	</bean> 
+	
+	<bean id="person" class="com.bv.model.Person">
+	 <property name="id" value="101"/>
+	<property name="name" value="Maya"/>
+	<property name="age" value="28"/> 
+	<!-- <property name="address" ref="address"/> -->
+	<!-- <constructor-arg index="0" value="101" />
+	<constructor-arg index="1" value="Jaya" />
+	<constructor-arg index="2" value="22" /> -->
+	</bean>
+</beans>
